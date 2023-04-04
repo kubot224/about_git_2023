@@ -1,0 +1,45 @@
+@require: arctic3
+
+let-inline \mono it =
+    {\ctx[set-font Latin (`lmmono`, 1.0, 0.0)]{#it;}} 
+
+open EasyTableAlias
+  in
+
+document '<
+    +make-title(|
+        title = {|Git / GitHub ガイダンス|};
+        author = {|久保拓巳|};
+        date = {|2023年04月05日|};
+    |);
++frame{目次}<
+  +listing{
+     * Git / GitHub とは
+     * 使う準備
+  }
+>
++section{|Git / GitHub とは|}<
+  +frame{Git とは}<
+    +listing {
+      * \emph{Git}とはバージョン管理システムの一つ
+      * ファイルの変更内容を追跡する
+        ** ファイルの差分確認・復元などが自由にできる
+    }
+    +fig-abs-pos((150pt, 30pt)) (include-image 400pt `images/version.jpg`);
+  >
+  +frame{こんなときに役立つ}<
+    +listing{
+      * うっかりバグが混入してしまった
+        ** → もとの状態に戻せる
+        ** 手動でバックアップを取らなくてよい
+  }
+  +frame{GitHub とは}<
+    +listing{
+      * \emph{GitHub} Git のホスティングサービス
+        ** Git で管理している内容を同期させる
+        ** 複数人でファイルを共有できる
+    }
+  >
+>
+>
+>
