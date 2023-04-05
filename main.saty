@@ -9,7 +9,7 @@ open EasyTableAlias
 document '<
     +make-title(|
         title = {|Git / GitHub ガイダンス|};
-        author = {|久保拓巳|};
+        author = {|久保拓巳|\mono{kubo\@disc.lab.uec.ac.jp}|};
         date = {|2023年04月05日|};
     |);
 +frame{目次}<
@@ -31,15 +31,116 @@ document '<
     +listing{
       * うっかりバグが混入してしまった
         ** → もとの状態に戻せる
-        ** 手動でバックアップを取らなくてよい
+      * いつ / どこを変更したかわからない
+        ** → 差分を管理しやすい
   }
+  >
   +frame{GitHub とは}<
     +listing{
-      * \emph{GitHub} Git のホスティングサービス
+      * \emph{GitHub}とは Git のホスティングサービス
         ** Git で管理している内容を同期させる
         ** 複数人でファイルを共有できる
+      * ユーザがコードを変更，Git で追跡，GitHub にアップロードという手順を踏む
     }
+    +fig-abs-pos((150pt, 30pt)) (include-image 400pt `images/github.jpg`);
   >
 >
++section{|実践|}<
+  +frame{覚えるべき用語}<
+    +listing{
+      * \emph{commit}：変更を追跡する
+        ** version を1つ上げるみたいなもの
+      * \emph{push}：変更分をGitHubにアップロードする
+      * \emph{pull}：変更分をダウンロードする
+      * \emph{リポジトリ}：Git で追跡する1つのフォルダ単位のこと
+      * \emph{branch}：並行作業できるファイル，ある branch で作業 / push をしても他のbranchには影響を与えない
+    }
+  >
+  +frame{使う}<
+    +p{以下のような方法がある}
+    +listing{
+      * コマンドラインから
+        ** `git commit...` などを打ち込んで直接操作する
+      * GUIから
+      * GitHub 上で直接操作する
+        ** これはあくまで Push などの操作のみで，ローカルに対して変更はできない
+    }
+    +p{以下ではGUIを用いて，GitHub アカウントの作成からファイルのpushまでを行う}
+  >
+  +frame{アカウントを作る}<
+    +listing{
+      * \mono{https://github.com/}にアクセス
+      * Sign Upを選択してemail / password / usrname の登録,認証を行う
+      * アンケートの回答 / プランの選択などをする
+        ** Free プランでよい（実は：学割が利用できる）
+    }
+    +p{この画面になったらアカウントの作成に成功している}
+    +fig-abs-pos((250pt, 30pt)) (include-image 250pt `images/github_initial.jpg`);
+  >
+  +frame{toda-lab への参加}<
+    +listing {
+      * GitHub で toda-lab に参加する
+    }
+  >
+  +frame{GUIアプリケーション："Github Desktop"の用意}<
+    +listing{
+      * \mono{https://desktop.github.com/}にアクセス
+      * ダウンロードなどを行う
+      * Github のアカウントにログインする
+    }
+  >
+  +frame{リポジトリのclone}<
+    +listing{
+      * progessというリポジトリが存在するので自分の PC にコピーする
+        ** この操作を \emph{clone}とよび，普通はそのリポジトリに対して最初だけ行う
+      * GitHub Desktop で `Clone a repositry from  the Internet...` を選択
+      * 適当なフォルダを選び，そこに clone する
+    }
+  >
+  +frame{Branch の作成}<
+    +listing{
+      * メニューの `Branch > New branch`を選択
+      * Name を決める（ここでは `Name2023`：例えば`kubo2023`を推奨）
+    }
+  >
+  +frame{Branch の切り替え，ファイルの作成}<
+  +listing{
+    * 上部の`Current Branch`を自分のものに切り替える
+    * ファイルを作成する
+    * 左下の狭い欄に add test.txt などと書く
+    * Commit to \{kubo2023\}を実行
+      ** これで commit ができた
+    * 上部の `Push Origin` を実行
+      ** これで push ができた
+  }
+  >
+  +frame{Github で確認}<
+    +listing{
+      * \mono{https://github.com/toda-lab/progress}にアクセス
+      * 左上の方の`main`を選択，自分のbranchに切り替える
+        ** 黄色い枠は無視してよい
+        ** これを実行すると，他の branch に自分の変更を取り込むようにお願いする
+      * さっき作ったファイルがあればOK
+    }
+  >
+  +fig-abs-pos((250pt, 30pt)) (include-image 250pt `images/branch.jpg`);
+  +frame{参考文献}<
+    +listing{
+      * 『わかばちゃんと学ぶ Git使い方入門』,湊川 あい，シーアンドアール研究所
+        ** 漫画で分かりやすい
+      * 『GitHub実践入門 ~Pull Requestによる開発の変革』,大塚 弘記，技術評論社
+        ** 解説が丁寧，ちょっと古いのでメニュが一部異なる
+      * サル先生のGit入門〜バージョン管理を使いこなそう,\mono{https://backlog.com/ja/git-tutorial/}
+        ** 解説が丁寧
+    }
+     +p{GitHubはとても便利なので入門書などに目を通しておくとよいかも}
+  >
+  +frame{最後に}<
+    +listing{
+      * 戸田研究室では進捗状況の共有などに GitHub を利用している
+        ** 運用の仕方などは資料を確認するとよい
+      * 質問はいつでも受け付けています
+    }
+  > 
 >
 >
